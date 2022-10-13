@@ -12,12 +12,12 @@ class BlahApp(MDApp):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
 
-        self.screen = Builder.load_file('/home/gokulkrishna_s/gui_ws/src/tutorial/ros_gui.kv')
+        self.screen = Builder.load_file('/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/ros_gui.kv')
     
     def build(self):
         return self.screen
 
 if __name__=='__main__':
-    rospy.init_node('simple_gui',anonymous=True)
+    # rospy.init_node('simple_gui',anonymous=True)
 
-    TutorialApp().run()
+    BlahApp().run()
