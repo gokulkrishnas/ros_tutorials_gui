@@ -1,10 +1,13 @@
 FloatLayout:   
     MDLabel:
-        text: "Autonomous Indoor Delivery Bot"
+        text: "Autonomous Indoor Delivery Bot GUI"
         halign: "center"
         size_hint: 1, 1
         pos_hint: {'center_x': 0.5,'center_y': 0.95}
 
     MDRaisedButton:
         text: "Press"
-        md_bg_color: "blue"
+        #md_bg_color: "blue"
+        size_hint: 0.15, 0.15
+        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        on_press: app.my_function(*args)
