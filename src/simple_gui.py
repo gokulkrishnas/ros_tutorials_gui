@@ -2,7 +2,7 @@
 
 from unicodedata import name
 import rospy
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool,Int8
 from kivymd.app import MDApp
 from kivy.lang import Builder
 
@@ -26,9 +26,16 @@ class BlahApp(MDApp):
         msg = True
         pub.publish(msg)
 
+# used to publish slider values when slider is moved
+    def slider_function(self,slider_value):
+        print(int(slider_value))
+        msg = int(slider_value)
+        slider_pub.publish(msg)
+
 
 if __name__=='__main__':
 
     pub=rospy.Publisher('/button',Bool,queue_size=1)
+    slider_pub=rospy.Publisher('/slider',Int8,queue_size=1)
     rospy.init_node('simple_gui',anonymous=True)
     BlahApp().run()

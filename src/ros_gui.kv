@@ -16,7 +16,23 @@ FloatLayout:
     MDRaisedButton:
         id: my_button
         text: "Press"
-        md_bg_color: "blue"
+        md_bg_color: "green"
         size_hint: 0.15, 0.15
         pos_hint: {'center_x': 0.5,'center_y': 0.5}
         on_press: app.my_function(*args)
+
+    MDSlider:
+        id: my_slider
+        min:0
+        max:100
+        value:0
+        hint: True
+        size_hint: 0.15, 0.15
+        pos_hint: {'center_x': 0.5,'center_y': 0.3}
+        on_touch_move: app.slider_function(my_slider.value)
+
+    MDLabel:
+        text: "Speed: %s" % int(my_slider.value)
+        halign: "center"
+        size_hint: 0.5, 0.5
+        pos_hint: {'center_x': 0.5,'center_y': 0.35}
