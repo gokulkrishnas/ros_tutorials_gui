@@ -1,11 +1,18 @@
-FloatLayout:   
+FloatLayout:
+    canvas:
+        Color:
+            rgba:(1,1,1,0.5)
+
+        Rectangle:
+            size: self.size
+            pos: self.pos
     MDLabel:
         canvas:
             Color:
                 rgba:(0,0.5,0,0.5)
 
             Rectangle:
-                source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/green_gradient.png'
+                source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/resources/green_gradient.png'
                 size: self.size
                 pos: self.pos
 
@@ -23,6 +30,7 @@ FloatLayout:
         pos_hint: {'center_x': 0.5,'center_y': 0.6}
 
     MDRaisedButton:
+        
         id: my_button
         text: "Press"
         md_bg_color: "green"
@@ -36,7 +44,7 @@ FloatLayout:
                 rgba:(0,0,0.7,0.3)
 
             RoundedRectangle:
-                source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/blue_gradient.png'
+                source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/resources/blue_gradient.png'
                 size: self.size
                 pos: self.pos
                 radius:[40]
