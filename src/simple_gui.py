@@ -6,7 +6,6 @@ from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.button import MDRoundFlatIconButton
-from kivymd.uix.menu import MDDropdownMenu
 
 
 class BlahApp(MDApp):
@@ -18,13 +17,14 @@ class BlahApp(MDApp):
     
     def build(self):
         self.theme_cls.theme_style = "Light"
-        self.theme_cls.primary_palette = "Red"
+        self.theme_cls.primary_palette = "Green"
         return (
             MDScreen(
                 MDRoundFlatIconButton(
                     text="Click here",
                     icon="language-python",
                     line_color=(0.25, 0.25, 0.25, 0.25),
+                    size_hint=(0.15,0.15),
                     pos_hint={"center_x": .25, "center_y": .25},
                 )
             )
