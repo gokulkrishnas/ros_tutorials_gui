@@ -21,6 +21,8 @@ class BlahApp(MDApp):
 # used to publish true when button is pressed
     def my_function(self,*args):
         print("Button pressed")
+        self.screen.ids.my_label.text='Button Pressed'
+        self.screen.ids.my_button.md_bg_color= "red"
         msg = True
         pub.publish(msg)
 
