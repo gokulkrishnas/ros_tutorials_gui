@@ -1,9 +1,18 @@
 FloatLayout:   
     MDLabel:
+        canvas:
+            Color:
+                rgba:(0,0.5,0,0.5)
+
+            Rectangle:
+                source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/green_gradient.png'
+                size: self.size
+                pos: self.pos
+
         id: my_heading
         text: "Autonomous Indoor Delivery Bot GUI"
         halign: "center"
-        size_hint: 1, 1
+        size_hint: 1, 0.1
         pos_hint: {'center_x': 0.5,'center_y': 0.95}
 
     MDLabel:
@@ -22,6 +31,16 @@ FloatLayout:
         on_press: app.my_function(*args)
 
     MDSlider:
+        canvas:
+            Color:
+                rgba:(0,0,0.7,0.3)
+
+            RoundedRectangle:
+                source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/blue_gradient.png'
+                size: self.size
+                pos: self.pos
+                radius:[40]
+
         id: my_slider
         min:0
         max:100

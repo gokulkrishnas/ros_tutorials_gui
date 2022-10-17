@@ -5,7 +5,9 @@ import rospy
 from std_msgs.msg import Bool,Int8
 from kivymd.app import MDApp
 from kivy.lang import Builder
+from kivy.core.window import Window
 
+Window.size = (1920, 1080)
 
 class BlahApp(MDApp):
 
