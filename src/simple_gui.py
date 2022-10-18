@@ -6,8 +6,21 @@ from std_msgs.msg import Bool,Int8
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
+from kivy.uix.screenmanager import ScreenManager, Screen
+
+# from kivy_garden.cefpython import CEFBrowser
 
 Window.size = (1920, 1080)
+
+# defining different screens
+class FirstWindow(Screen):
+    pass
+
+class SecondWindow(Screen):
+    pass
+
+class WindowManager(ScreenManager):
+    pass
 
 class BlahApp(MDApp):
 
@@ -16,11 +29,11 @@ class BlahApp(MDApp):
         super().__init__(**kwargs)
         self.screen = Builder.load_file('/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/ros_gui.kv')
     
-# used to display UI components in .kv file    
+    # used to display UI components in .kv file    
     def build(self):
         return self.screen
 
-# used to publish true when button is pressed
+    # used to publish true when button is pressed
     def my_function(self,*args):
         print("Button pressed")
         self.screen.ids.my_label.text='Button Pressed'
@@ -28,7 +41,7 @@ class BlahApp(MDApp):
         msg = True
         pub.publish(msg)
 
-# used to publish slider values when slider is moved
+    # used to publish slider values when slider is moved
     def slider_function(self,slider_value):
         print(int(slider_value))
         msg = int(slider_value)

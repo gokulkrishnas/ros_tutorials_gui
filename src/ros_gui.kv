@@ -1,65 +1,176 @@
-FloatLayout:
-    canvas:
-        Color:
-            rgba:(1,1,1,0.5)
+WindowManager:
+    FirstWindow:
+    SecondWindow:
 
-        Rectangle:
-            size: self.size
-            pos: self.pos
-    MDLabel:
+<FirstWindow>:
+    name: "first"
+    FloatLayout:
         canvas:
             Color:
-                rgba:(0,0.5,0,0.5)
+                rgba:(1,1,1,0.5)
 
             Rectangle:
-                source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/resources/green_gradient.png'
                 size: self.size
                 pos: self.pos
+        MDLabel:
+            canvas:
+                Color:
+                    rgba:(0,0.5,0,0.5)
 
-        id: my_heading
-        text: "Autonomous Indoor Delivery Bot GUI"
-        halign: "center"
-        size_hint: 1, 0.1
-        pos_hint: {'center_x': 0.5,'center_y': 0.95}
+                Rectangle:
+                    source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/resources/green_gradient.png'
+                    size: self.size
+                    pos: self.pos
 
-    MDLabel:
-        id: my_label
-        text: ""
-        halign: "center"
-        size_hint: 1, 1
-        pos_hint: {'center_x': 0.5,'center_y': 0.6}
+            id: my_heading
+            text: "Autonomous Indoor Delivery Bot GUI"
+            font_size:40
+            halign: "center"
+            size_hint: 1, 0.1
+            pos_hint: {'center_x': 0.5,'center_y': 0.95}
 
-    MDRaisedButton:
-        
-        id: my_button
-        text: "Press"
-        md_bg_color: "green"
-        size_hint: 0.15, 0.15
-        pos_hint: {'center_x': 0.5,'center_y': 0.5}
-        on_press: app.my_function(*args)
+        MDLabel:
+            id: my_label
+            text: ""
+            halign: "center"
+            size_hint: 1, 1
+            pos_hint: {'center_x': 0.5,'center_y': 0.6}
 
-    MDSlider:
+        MDRaisedButton:
+            
+            id: my_button
+            text: "Press"
+            md_bg_color: "green"
+            size_hint: 0.15, 0.15
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            on_press: app.my_function(*args)
+
+        MDLabel:
+            text: "First screen"
+            font_size: 30
+            halign: "center"
+            size_hint: 1, 0.1
+            pos_hint: {'center_x': 0.5,'center_y': 0.8}
+        Button:
+            text:'Next'
+            font_size: 30
+            size_hint: 0.15, 0.15
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+
+<SecondWindow>:
+    name: "second"
+    FloatLayout:
         canvas:
             Color:
-                rgba:(0,0,0.7,0.3)
+                rgba:(1,1,1,0.5)
 
-            RoundedRectangle:
-                source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/resources/blue_gradient.png'
+            Rectangle:
                 size: self.size
                 pos: self.pos
-                radius:[40]
+        MDSlider:
+            canvas:
+                Color:
+                    rgba:(0,0,0.7,0.3)
 
-        id: my_slider
-        min:0
-        max:100
-        value:0
-        hint: True
-        size_hint: 0.15, 0.15
-        pos_hint: {'center_x': 0.5,'center_y': 0.3}
-        on_touch_move: app.slider_function(my_slider.value)
+                RoundedRectangle:
+                    source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/resources/blue_gradient.png'
+                    size: self.size
+                    pos: self.pos
+                    radius:[40]
 
-    MDLabel:
-        text: "Speed: %s" % int(my_slider.value)
-        halign: "center"
-        size_hint: 0.5, 0.5
-        pos_hint: {'center_x': 0.5,'center_y': 0.35}
+            id: my_slider
+            min:0
+            max:100
+            value:0
+            hint: True
+            size_hint: 0.15, 0.15
+            pos_hint: {'center_x': 0.5,'center_y': 0.3}
+            on_touch_move: app.slider_function(my_slider.value)
+
+        MDLabel:
+            text: "Speed: %s" % int(my_slider.value)
+            halign: "center"
+            size_hint: 0.5, 0.5
+            pos_hint: {'center_x': 0.5,'center_y': 0.35}
+
+        Label:
+            text: "Second screen"
+            pos_hint: {'center_x': 0.2,'center_y': 0.2}
+            font_size: 20
+        Button:
+            text:'Previous'
+            font_size: 30
+            size_hint: 0.15, 0.15
+            on_release: 
+                app.root.current = "first"
+                root.manager.transition.direction = "right"
+    
+
+
+# FloatLayout:
+#     canvas:
+#         Color:
+#             rgba:(1,1,1,0.5)
+
+#         Rectangle:
+#             size: self.size
+#             pos: self.pos
+#     MDLabel:
+#         canvas:
+#             Color:
+#                 rgba:(0,0.5,0,0.5)
+
+#             Rectangle:
+#                 source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/resources/green_gradient.png'
+#                 size: self.size
+#                 pos: self.pos
+
+#         id: my_heading
+#         text: "Autonomous Indoor Delivery Bot GUI"
+#         halign: "center"
+#         size_hint: 1, 0.1
+#         pos_hint: {'center_x': 0.5,'center_y': 0.95}
+
+#     MDLabel:
+#         id: my_label
+#         text: ""
+#         halign: "center"
+#         size_hint: 1, 1
+#         pos_hint: {'center_x': 0.5,'center_y': 0.6}
+
+#     MDRaisedButton:
+        
+#         id: my_button
+#         text: "Press"
+#         md_bg_color: "green"
+#         size_hint: 0.15, 0.15
+#         pos_hint: {'center_x': 0.5,'center_y': 0.5}
+#         on_press: app.my_function(*args)
+
+#     MDSlider:
+#         canvas:
+#             Color:
+#                 rgba:(0,0,0.7,0.3)
+
+#             RoundedRectangle:
+#                 source: '/home/gokulkrishna_s/gui_ws/src/ros_tutorials_gui/src/resources/blue_gradient.png'
+#                 size: self.size
+#                 pos: self.pos
+#                 radius:[40]
+
+#         id: my_slider
+#         min:0
+#         max:100
+#         value:0
+#         hint: True
+#         size_hint: 0.15, 0.15
+#         pos_hint: {'center_x': 0.5,'center_y': 0.3}
+#         on_touch_move: app.slider_function(my_slider.value)
+
+#     MDLabel:
+#         text: "Speed: %s" % int(my_slider.value)
+#         halign: "center"
+#         size_hint: 0.5, 0.5
+#         pos_hint: {'center_x': 0.5,'center_y': 0.35}
